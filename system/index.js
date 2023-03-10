@@ -1,11 +1,10 @@
 import { Client } from "wwebjs"
 import { promisify } from "util"
 import { glob } from "glob"
-import module from 'module'
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 
 const gPro = promisify(glob);
-global.require = module.createRequire(import.meta.url)
-
 module.exports = async (client) => {
     // command
     const fileCmd = await gPro(`cmd/**/*.js`);

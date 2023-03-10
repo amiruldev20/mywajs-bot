@@ -1,0 +1,44 @@
+{
+	"name": "wwebjs-base",
+	"version": "1.0.1",
+	"description": "New base whatsapp bot using with wwebjs",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"start": "node index.js",
+		"go": "pm2 start system/index.js --deep-monitoring --attach --name mywabot",
+		"dev": "nodemon --files --watch \"./**\" --ext \"js,ejs,html\" --exec npm start",
+		"stop": "pm2 stop mywabot"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/amiruldev20/wwebjs-base.git"
+	},
+	"keywords": [
+		"express",
+		"api",
+		"bot",
+		"whatsapp-gateway",
+		"whatsapp bot",
+		"mysql",
+		"express",
+		"nodejs"
+	],
+	"author": "Amirul Dev",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/amiruldev20/wwebjs-base/issues"
+	},
+	"homepage": "https://github.com/amiruldev20/wwebjs-base#readme",
+	"dependencies": {
+		"cheerio": "^1.0.0-rc.12",
+		"delay": "^5.0.0",
+		"fs": "^0.0.1-security",
+		"moment": "^2.29.4",
+		"mqtt": "^4.3.7",
+		"puppeteer": "^19.7.3",
+		"qrcode-terminal": "^0.12.0",
+		"urlencode": "^1.1.0",
+		"wwebjs": "github:amiruldev20/wwebjs"
+	}
+}

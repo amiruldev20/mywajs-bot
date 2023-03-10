@@ -1,4 +1,5 @@
-import { Client, LocalAuth } from 'wwebjs'
+import wwebjs from 'wwebjs'
+const { Client, LocalAuth } = wwebjs
 import { Collection } from '@discordjs/collection'
 import module from 'module'
 import "dotenv/config";

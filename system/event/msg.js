@@ -25,7 +25,7 @@ mywa.on('message_create', async m => {
         const isAdmin = isGroup ? groupAdmins.includes(sender) : false
 
         if (!m) return
-        console.log(cmd)
+        //console.log(cmd)
         if (!process.env.public && !m.fromMe) return
         if (m.id.id.startsWith("3EB") && m.id.id.length == 20) return
 
@@ -34,7 +34,7 @@ mywa.on('message_create', async m => {
 
 
         const command = mywa.cmd.get(cmd.toLowerCase()) || mywa.cmd.find(c => c.aliases?.includes(cmd.toLowerCase()));
-        console.log("com ", command)
+        //console.log("com ", command)
         /*
         const commands = mywa.cmd
         require("./chats")(mywa, m, commands) 

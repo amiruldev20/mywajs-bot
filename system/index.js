@@ -1,25 +1,31 @@
-import { Client } from "wwebjs"
-import { promisify } from "util"
-import { glob } from "glob"
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
+const {
+    glob
+} = require("glob");
+const {
+    promisify
+} = require("util");
 
 const gPro = promisify(glob);
-module.exports = async (client) => {
-    // command
-    const fileCmd = await gPro(`cmd/**/*.js`);
+
+module.exports = async (mywa) => {
+    // COMMAND
+    const fileCmd = await gPro(`system/cmd/**/*.js`);
     fileCmd.map((value) => {
-        const file = require('./' + value);
+        const file = require('../' + value);
         const split = value.split("/");
         const dir = split[split.length - 2];
 
-        if (file.name) {
-            const properties = { dir, ...file };
-            client.cmd.set(file.name, properties);
+        if (file.cmd) {
+            const properties = {
+                dir,
+                ...file
+            };
+            mywa.cmd.set(file.cmd, properties);
         }
     });
 
-    // Event
-    const eventFile = await gPro(`event/*.js`);
-    eventFile.map((value) => require('./' + value));
+    global.mywa = mywa
+    // EVENT
+    const fileEvent = await gPro(`system/event/*.js`);
+    fileEvent.map((value) => require('../' + value));
 }

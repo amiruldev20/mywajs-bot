@@ -1,8 +1,7 @@
-import { Client, Message } from 'wwebjs'
-
 module.exports = {
-    name: 'ping',
-    run: async(client, message, args) => {
-        message.reply(`okay`);
+    cmd: 'ping',
+    desc: 'Testing bot',
+    run: async(mywa, m, { text }) => {
+        m.reply(`okay`);
     }
 }

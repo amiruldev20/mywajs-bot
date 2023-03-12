@@ -1,5 +1,6 @@
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
-# WWEBJS BASE
+# WWEBJS BASE (CJS)
+Versi esm comingsoon
 
  <p align="center">
 <img width="" src="https://img.shields.io/github/repo-size/amiruldev20/wwebjs-base?color=green&label=Repo%20Size&style=for-the-badge&logo=appveyor">

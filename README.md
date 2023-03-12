@@ -24,7 +24,7 @@ jadi bisa meminimalisir banned / spam
 
 # NB
 ```
-untuk menjalanlan bot ini, perlu tempat deploy
+untuk menjalankan bot ini, perlu tempat deploy
 yang support puppeteer.
 tidak semua panel run bot support puppeteer.
 jika ingin panel supp keperluan bot dll

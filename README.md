@@ -2,7 +2,7 @@
 # WWEBJS BASE
 
  <p align="center">
-<img width="" src="https://img.shields.io/github/repo-size/amiruldev20/baileys?color=green&label=Repo%20Size&style=for-the-badge&logo=appveyor">
+<img width="" src="https://img.shields.io/github/repo-size/amiruldev20/wwebjs-base?color=green&label=Repo%20Size&style=for-the-badge&logo=appveyor">
 </p>
  
  > **Note**: ini sudah bisa digunakan tetapi belum 100% fix. silahkan tunggu update jika ingin yang 100% fix dan banyak menu

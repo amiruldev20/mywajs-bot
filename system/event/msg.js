@@ -71,7 +71,7 @@ mywa.on('message_create', async m => {
         // owner
         if (command.isOwner && !isOwner) return m.reply("OWNER ONLY")
         // group
-        if (command.isGc && !isGroup)) return m.reply("GROUP ONLY")
+        if (command.isGc && !isGroup) return m.reply("GROUP ONLY")
         
         await command.run(mywa, m, cmdOpt);
 

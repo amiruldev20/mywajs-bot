@@ -46,7 +46,8 @@ run: async(mywa, m, { text, dll }) => { // dll ubah sesuai yg anda inginkan. cek
 m.reply('hello world') // isi menu
 
 },
-isOwner: true, // owner only
-q: true // aktifin biar qt diatas work
+q: boolean, // query text
+isOwner: boolean, // owner only
+isGc: boolean // group only
 }
 

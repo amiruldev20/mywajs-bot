@@ -10,6 +10,8 @@ Versi esm comingsoon
  
 GRUP INFO: [KLIK DISINI](https://chat.whatsapp.com/Htfi5uzYWOt0ekPu66YK4Y)
 
+# baca detail cara buat command dipaling bawah
+
 #### alasan pindah ke wwebjs bukan baileys
 ```
 akhir" ini saya pakai baileys sering ke banned / kena spam
@@ -31,3 +33,20 @@ jika ingin panel supp keperluan bot dll
 pakailah GOLDPANEL. panel yang saya manage
 100% aman
 ```
+
+# detail command
+```
+module.exports = {
+cmd: 'tes', // comandnya (saat ini hanya bisa 1 command)
+desc: 'deskripsi', // deskripsi command
+tags: 'main', // tag command
+qt: 'Input command', // query text biar ga perlu kyk if (!text) return m.reply("input command")
+run: async(mywa, m, { text, dll }) => { // dll ubah sesuai yg anda inginkan. cek opsinya di event/message (cmdOpt)
+
+m.reply('hello world') // isi menu
+
+},
+isOwner: true, // owner only
+q: true // aktifin biar qt diatas work
+}
+

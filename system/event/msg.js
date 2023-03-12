@@ -64,12 +64,15 @@ mywa.on('message_create', async m => {
             isAdmin
         }
 
-        //-- MESSAGE FAIL
-        if (command.isOwner && !isOwner) {
-            return m.reply("OWNER ONLY!!")
-        }
+        //-- MESSAGE RESPONSE
+        
+        // query
         if (command.q && !text) return m.reply(command.qt)
-
+        // owner
+        if (command.isOwner && !isOwner) return m.reply("OWNER ONLY")
+        // group
+        if (command.isGc && !isGroup)) return m.reply("GROUP ONLY")
+        
         await command.run(mywa, m, cmdOpt);
 
     } catch (e) {

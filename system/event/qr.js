@@ -1,10 +1,16 @@
-import qrt from 'qrcode-terminal'
-import module from 'module'
-global.require = module.createRequire(import.meta.url)
+const qrcode = require('qrcode-terminal');
 
-const client = require('../../index');
+mywa.on("qr", qr => {
+    console.log("CONNECTED, SCAN THIS QR...")
+    qrcode.generate(qr, {
+        small: true
+    });
+});
 
-client.on("qr", qr => {
-    console.log(`[ ! ] Scan this QR...`)
-    qrt.generate(qr, {small: true});
+mywa.on('authenticated', () => {
+    console.log('AUTHENTICATED');
+});
+
+mywa.on('auth_failure', msg => {
+    console.error('AUTHENTICATION FAILURE', msg);
 });

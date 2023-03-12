@@ -1,23 +1,40 @@
-import wwebjs from 'wwebjs'
-const { Client, LocalAuth } = wwebjs
-import { Collection } from '@discordjs/collection'
-import module from 'module'
-import "dotenv/config";
+/*
+|=================================|
+| NAME: WWEBJS BASE               |
+| VERSION: 1.0.1                  |
+| CREATOR: Amirul Dev             |
+| GITHUB: amiruldev20             |
+| IG: @amirul.dev                 |
+|=================================|
+| Thanks To:                      |
+| - Istiqmal                      |
+| - Hisoka                        |
+| - And you                       |
+|=================================|
+*/
+const {
+    Client,
+    LocalAuth
+} = require('wwebjs')
+const {
+    Collection
+} = require('@discordjs/collection')
+require('dotenv').config()
 
-global.require = module.createRequire(import.meta.url)
-
-const client = new Client({
-    restartOnAuthFail: true,
+const mywa = new Client({
+    authStrategy: new LocalAuth(),
     puppeteer: {
-        headless: true,
-        args: [ '--no-sandbox', '--disable-setuid-sandbox' ]
-    },
-    authStrategy: new LocalAuth({ clientId: "client" })
+      //  headless: false, //uncomment ini jika ingin live chromium
+        args: ['--no-sandbox'] // hide ini untuk live chromium
+    }
 });
-module.exports = client;
+// setingan diatas untuk menjalankan puppeteer di panel run bot
+// panelmu ga sup puppeteer? pakailah goldpanel
+module.exports = mywa;
 
-// Global Variable
-client.cmd = new Collection();
-require("./system")(client);
-
-client.initialize();
+mywa.cmd = new Collection();
+require("./system")(mywa);
+mywa.initialize();
+mywa.on('loading_screen', (percent, message) => {
+    console.log('LOADING SCREEN', percent, message);
+});

@@ -35,11 +35,12 @@ pakailah GOLDPANEL. panel yang saya manage
 ```
 
 # detail command
+tanda centang berarti itu wajib dibuat (diisi)
 ```
 module.exports = {
-cmd: 'tes', // comandnya (saat ini hanya bisa 1 command)
+cmd: 'tes', // ✅ comandnya (saat ini hanya bisa 1 command)
 desc: 'deskripsi', // deskripsi command
-tags: 'main', // tag command
+tags: 'main', // ✅ tag command
 qt: 'Input command', // query text biar ga perlu kyk if (!text) return m.reply("input command")
 run: async(mywa, m, { text, dll }) => { // dll ubah sesuai yg anda inginkan. cek opsinya di event/message (cmdOpt)
 

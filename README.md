@@ -47,7 +47,7 @@ run: async(mywa, m, { text, dll }) => { // dll ubah sesuai yg anda inginkan. cek
 m.reply('hello world') // isi menu
 
 },
-q: boolean, // query text
+isQ: boolean, // query text
 isOwner: boolean, // owner only
 isGc: boolean // group only
 }

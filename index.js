@@ -24,11 +24,16 @@ require('dotenv').config()
 const mywa = new Client({
     authStrategy: new LocalAuth(),
     puppeteer: {
-      //  headless: false, //uncomment ini jika ingin live chromium
-        args: ['--no-sandbox'] // hide ini untuk live chromium
+        headless: false,
+        defaultViewport: {
+            width: 800,
+            height: 1288
+        },
+        // args: ['--no-sandbox'] // hide ini untuk live chromium
     }
 });
-// setingan diatas untuk menjalankan puppeteer di panel run bot
+// setingan diatas untuk menjalankan puppeteer di rdp
+// run dipanel silahkan hide headles dan uncomment args
 // panelmu ga sup puppeteer? pakailah goldpanel
 module.exports = mywa;
 

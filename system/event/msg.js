@@ -67,7 +67,7 @@ mywa.on('message_create', async m => {
         //-- MESSAGE RESPONSE
         
         // query
-        if (command.q && !text) return m.reply(command.qt)
+        if (command.isQ && !text) return m.reply(command.qt)
         // owner
         if (command.isOwner && !isOwner) return m.reply("OWNER ONLY")
         // group

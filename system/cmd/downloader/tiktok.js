@@ -12,6 +12,7 @@ module.exports = {
         mc,
         text
     }) => {
+        try {
         let name = await func.rand(5)
         m.reply('Downloading...')
         var res = await axios("https://ssyoutube.com/api/convert", {
@@ -32,6 +33,9 @@ Title: ${json.meta.title}
 Duration: ${json.meta.duration}`
         })
         fs.unlinkSync(`./tmp/${name}.mp4`)
+    } catch {
+        m.reply(`Permintaan tidak dapat diposes, cobalagi nanti!!`)
+    }
     },
     isQ: true
 }

@@ -43,7 +43,7 @@ const mywa = new Client({
             '--start-maximized'
         ],
         ignoreHTTPSErrors: true,
-       executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
+        executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
     
     }
 });

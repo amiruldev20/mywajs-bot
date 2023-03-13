@@ -20,9 +20,14 @@ const {
     Collection
 } = require('@discordjs/collection')
 require('dotenv').config()
-
+const puppeteer = require("puppeteer")
 const mywa = new Client({
     authStrategy: new LocalAuth(),
+    qrMaxRetries: 3,
+	takeoverOnConflict: true,
+	takeoverTimeoutMs: 3000,
+	bypassCSP: true,
+	userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
     puppeteer: {
         headless: false,
         defaultViewport: {
@@ -37,7 +42,9 @@ const mywa = new Client({
             '--disable-session-crashed-bubble',
             '--start-maximized'
         ],
-        ignoreHTTPSErrors: true
+        ignoreHTTPSErrors: true,
+       executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
+    
     }
 });
 // setingan diatas untuk menjalankan puppeteer di rdp

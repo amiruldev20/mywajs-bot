@@ -4,7 +4,7 @@ const {
 const {
     promisify
 } = require("util");
-
+const func = require("./lib/func")
 const gPro = promisify(glob);
 
 module.exports = async (mywa) => {
@@ -25,6 +25,7 @@ module.exports = async (mywa) => {
     });
 
     global.mywa = mywa
+    global.func = func
     // EVENT
     const fileEvent = await gPro(`system/event/*.js`);
     fileEvent.map((value) => require('../' + value));

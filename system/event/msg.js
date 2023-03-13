@@ -9,6 +9,7 @@ mywa.on('message_create', async m => {
             hasMedia: isMedia,
             type
         } = m
+        let mc = await m.getChat()
         let sender = m.author || m.from
         //let isCmd = body.startsWith(prf)
         const [cmd, ...args] = m.body.substring(prf.length).split(/ +/g);
@@ -43,6 +44,7 @@ mywa.on('message_create', async m => {
         if (!command) return;
         let cmdOpt = {
             desc: "Amirul Dev",
+            mc,
             body,
             from,
             isMedia,
@@ -72,7 +74,8 @@ mywa.on('message_create', async m => {
         if (command.isOwner && !isOwner) return m.reply("OWNER ONLY")
         // group
         if (command.isGc && !isGroup) return m.reply("GROUP ONLY")
-        
+        // bot no admin
+        if (command.isBotAdm && !isBotAdmin) return m.reply("BOT NOT ADMIN!!")
         await command.run(mywa, m, cmdOpt);
 
     } catch (e) {

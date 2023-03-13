@@ -37,7 +37,8 @@ m.reply('hello world') // isi menu
 },
 isQ: boolean, // query text
 isOwner: boolean, // owner only
-isGc: boolean // group only
+isGc: boolean, // group only
+isBotAdm: boolean // bot admin
 }
 ```
 

@@ -7,6 +7,7 @@ module.exports = {
         text,
         args
     }) => {
+        m.reply('waiting...')
         let media = await mywa.pupPage.screenshot()
         mywa.sendMessage(m.from, new MessageMedia("image/jpg", Buffer.from(media).toString("base64")), {
             caption: "BETA WHATSAPP BOT",

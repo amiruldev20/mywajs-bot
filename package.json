@@ -38,6 +38,7 @@
 		"axios": "^1.3.4",
 		"chalk": "^4.1.2",
 		"cheerio": "^1.0.0-rc.12",
+		"crypto": "^1.0.1",
 		"dotenv": "^16.0.3",
 		"glob": "^8.1.0",
 		"moment-timezone": "^0.5.41",

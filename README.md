@@ -10,19 +10,7 @@ Versi esm comingsoon
  
 GRUP INFO: [KLIK DISINI](https://chat.whatsapp.com/Htfi5uzYWOt0ekPu66YK4Y)
 
-# baca detail cara buat command dipaling bawah
-
-#### alasan pindah ke wwebjs bukan baileys
-```
-akhir" ini saya pakai baileys sering ke banned / kena spam
-add 1 member juga langsung banned.
-lalu saya coba bikin versi wwebjs untuk fitur
-- autoread story
-- auto add member to grup
-aman testing 2 hari tidak keban / kena spam
-mungkin karena wwebjs memakai puppeteer yang bsa live jg
-jadi bisa meminimalisir banned / spam
-```
+#### baca detail cara buat command dipaling bawah
 
 # NB
 ```
@@ -51,6 +39,7 @@ isQ: boolean, // query text
 isOwner: boolean, // owner only
 isGc: boolean // group only
 }
+```
 
 # instalasi
 - git clone https://github.com/amiruldev20/wwebjs-base

@@ -52,3 +52,8 @@ isOwner: boolean, // owner only
 isGc: boolean // group only
 }
 
+# instalasi
+- git clone https://github.com/amiruldev20/wwebjs-base
+- cd wwebjs-base
+- npm i
+- npm run dev

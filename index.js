@@ -29,11 +29,19 @@ const mywa = new Client({
             width: 800,
             height: 1288
         },
-        // args: ['--no-sandbox'] // hide ini untuk live chromium
+        args: ['--no-sandbox',
+            '--no-first-run',
+            '--no-default-browser-check',
+            '--disable-setuid-sandbox',
+            '--disable-accelerated-2d-canvas',
+            '--disable-session-crashed-bubble',
+            '--start-maximized'
+        ],
+        ignoreHTTPSErrors: true
     }
 });
 // setingan diatas untuk menjalankan puppeteer di rdp
-// run dipanel silahkan hide headles dan uncomment args
+// run dipanel silahkan true headles
 // panelmu ga sup puppeteer? pakailah goldpanel
 module.exports = mywa;
 

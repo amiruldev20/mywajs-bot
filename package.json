@@ -43,6 +43,7 @@
 		"moment-timezone": "^0.5.41",
 		"nodemon": "^2.0.21",
 		"qrcode-terminal": "^0.12.0",
+		"util": "^0.12.5",
 		"wwebjs": "github:amiruldev20/wwebjs"
 	}
 }

@@ -1,4 +1,4 @@
-const qrcode = require('qrcode-terminal');
+import qrcode from 'qrcode-terminal'
 
 mywa.on("qr", qr => {
     console.log("CONNECTED, SCAN THIS QR...")

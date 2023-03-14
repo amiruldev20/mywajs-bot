@@ -1,6 +1,6 @@
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
-# WWEBJS BASE (CJS)
-Versi esm comingsoon
+# WWEBJS BASE (ESM)
+Versi cjs nanti di up di branch cjs
 
  <p align="center">
 <img width="" src="https://img.shields.io/github/repo-size/amiruldev20/wwebjs-base?color=green&label=Repo%20Size&style=for-the-badge&logo=appveyor">
@@ -25,7 +25,7 @@ pakailah GOLDPANEL. panel yang saya manage
 # detail command
 tanda centang berarti itu wajib dibuat (diisi)
 ```
-module.exports = {
+export default {
 cmd: 'tes', // ✅ comandnya (saat ini hanya bisa 1 command)
 desc: 'deskripsi', // deskripsi command
 tags: 'main', // ✅ tag command

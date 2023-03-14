@@ -1,32 +1,35 @@
+import okg from 'glob'
 const {
     glob
-} = require("glob");
-const {
+} = okg
+import {
     promisify
-} = require("util");
-const func = require("./lib/func")
+} from 'util';
+import func from './lib/func.js'
 const gPro = promisify(glob);
 
-module.exports = async (mywa) => {
+export default async (mywa) => {
     // COMMAND
-    const fileCmd = await gPro(`system/cmd/**/*.js`);
-    fileCmd.map((value) => {
-        const file = require('../' + value);
+    const fileCmd = await gPro("system/cmd/**/*.js");
+    fileCmd.map(async (value) => {
+        const file = await import(`../${value}`);
+        // console.log("check file ", file.default.cmd);
         const split = value.split("/");
         const dir = split[split.length - 2];
 
-        if (file.cmd) {
+        if (file.default.cmd && dir) {
             const properties = {
                 dir,
-                ...file
+                ...file,
             };
-            mywa.cmd.set(file.cmd, properties);
+            mywa.cmd.set(file.default.cmd, properties);
         }
     });
 
-    global.mywa = mywa
-    global.func = func
+    global.mywa = mywa;
+    global.func = func;
+
     // EVENT
     const fileEvent = await gPro(`system/event/*.js`);
-    fileEvent.map((value) => require('../' + value));
+    fileEvent.map(async (value) => await import(`../${value}`));
 }

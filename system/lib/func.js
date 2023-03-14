@@ -1,26 +1,32 @@
-exports.downloadFile = (url, name) => {
-    const https = require('https');
-const fs = require('fs');
-  const file = fs.createWriteStream(`./tmp/${name}.mp4`);
-  https.get(url, response => {
-    response.pipe(file);
-    file.on('finish', () => {
-      file.close(() => {
-        console.log(`Downloaded file: ${name}`);
-      });
-    });
-  }).on('error', error => {
-    console.error(`Error downloading file: ${error}`);
-  });
-}
+import cheerio from 'cheerio';
+import https from 'https';
+import fs from 'fs';
+import crypto from 'crypto';
 
-exports.delay = (ms)  => {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-}
+export default new class Function {
 
-exports.rand = (length) => {
-    const crypto = require('crypto');
-  return crypto.randomBytes(Math.ceil(length/2))
-          .toString('hex') // convert to hexadecimal format
-          .slice(0,length); // return required number of characters
+    downloadFile = (name, url) => {
+        const file = fs.createWriteStream(`./tmp/${name}`);
+        https.get(url, response => {
+            response.pipe(file);
+            file.on('finish', () => {
+                file.close(() => {
+                    console.log(`Downloaded file: ${name}`);
+                });
+            });
+        }).on('error', error => {
+            console.error(`Error downloading file: ${error}`);
+        });
+    }
+
+
+    delay = (ms) => {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    rand = (length) => {
+        return crypto.randomBytes(Math.ceil(length / 2))
+            .toString('hex') // convert to hexadecimal format
+            .slice(0, length); // return required number of characters
+    }
 }

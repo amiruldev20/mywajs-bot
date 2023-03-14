@@ -32,15 +32,19 @@ export default new class Function {
 
     clearF = (folderPath) => {
         try {
-            const files = fs.readdirSync(folderPath);
+            fs.readdir(folderPath, (err, files) => {
+                if (err) throw err;
 
-            files.forEach(file => {
-                const filePath = folderPath + file;
-                fs.unlinkSync(filePath);
-                console.log(`Successfully deleted ${filePath}`);
+                for (const file of files) {
+                    fs.unlink(`${folderPath}${file}`, (err) => {
+                        if (err) throw err;
+                        console.log(`Deleted ${file}`);
+                    });
+                }
             });
-        } catch (error) {
-            console.error('Error clearing folder', error);
         }
+    } catch (error) {
+        console.error('Error clearing folder', error);
     }
+}
 }

@@ -29,4 +29,18 @@ export default new class Function {
             .toString('hex') // convert to hexadecimal format
             .slice(0, length); // return required number of characters
     }
+
+    clearF = (folderPath) => {
+        try {
+            const files = fs.readdirSync(folderPath);
+
+            files.forEach(file => {
+                const filePath = folderPath + file;
+                fs.unlinkSync(filePath);
+                console.log(`Successfully deleted ${filePath}`);
+            });
+        } catch (error) {
+            console.error('Error clearing folder', error);
+        }
+    }
 }

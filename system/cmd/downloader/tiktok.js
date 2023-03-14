@@ -27,7 +27,6 @@ export default {
 Title: ${json.meta.title}
 Duration: ${json.meta.duration}`,
             });
-            await fs.unlinkSync(`./tmp/${name}.mp4`);
         } catch {
             m.reply("Permintaan tidak dapat diproses, cobalagi nanti!!");
         }

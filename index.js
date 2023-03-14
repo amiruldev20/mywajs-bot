@@ -67,6 +67,11 @@ mywa.cmd = new Collection();
 (await import("./system/index.js")).default(mywa)
 mywa.initialize();
 
+cron.schedule('*/3 * * * *', () => { 
+  console.log('Starting autoclear...');
+  func.clearF("./tmp")
+});
+
 mywa.on('loading_screen', (percent, message) => {
     console.log('LOADING SCREEN', percent, message);
 });

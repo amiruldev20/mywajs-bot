@@ -42,9 +42,9 @@ export default new class Function {
                     });
                 }
             });
-        }
+        
     } catch (error) {
         console.error('Error clearing folder', error);
     }
-
+  }
 }

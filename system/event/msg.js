@@ -1,7 +1,8 @@
-mywa.on('message_create', async m => {
-    var prefix = process.env.prefix
+export default async function handlerMessage(mywa, m) {
+    console.log(m)
+    var prefix = process.env.prefix;
     try {
-        var prf = prefix ? /^[./!#+]/gi.test(m.body) ? m.body.match(/^[./!#+]/gi)[0] : "" : prefix ?? global.prf
+        var prf = prefix ? /^[./!#+]/gi.test(m.body) ? m.body.match(/^[./!#+]/gi)[0] : "" : prefix ?? global.prf;
 
         const {
             body,
@@ -11,7 +12,6 @@ mywa.on('message_create', async m => {
         } = m
         let mc = await m.getChat()
         let sender = m.author || m.from
-        //let isCmd = body.startsWith(prf)
         const [cmd, ...args] = m.body.substring(prf.length).split(/ +/g);
         const isOwner = [mywa.info.wid._serialized, process.env.owner].map(v => v.replace(/[^0-9]/g, '') + '@c.us').includes(sender)
         const text = args.join(" ")
@@ -26,21 +26,13 @@ mywa.on('message_create', async m => {
         const isAdmin = isGroup ? groupAdmins.includes(sender) : false
 
         if (!m) return
-        //console.log(cmd)
         if (!process.env.public && !m.fromMe) return
         if (m.id.id.startsWith("3EB") && m.id.id.length == 20) return
-
-
         if (!m.body.toLowerCase().startsWith(prf)) return;
-
-
+       // console.log("cmd1 ", mywa.cmd)
         const command = mywa.cmd.get(cmd.toLowerCase()) || mywa.cmd.find(c => c.aliases?.includes(cmd.toLowerCase()));
-        //console.log("com ", command)
-        /*
-        const commands = mywa.cmd
-        require("./chats")(mywa, m, commands) 
-        */
 
+       // console.log("cmd ", command)
         if (!command) return;
         let cmdOpt = {
             desc: "Amirul Dev",
@@ -66,19 +58,13 @@ mywa.on('message_create', async m => {
             isAdmin
         }
 
-        //-- MESSAGE RESPONSE
-        
-        // query
-        if (command.isQ && !text) return m.reply(command.qt)
-        // owner
-        if (command.isOwner && !isOwner) return m.reply("OWNER ONLY")
-        // group
-        if (command.isGc && !isGroup) return m.reply("GROUP ONLY")
-        // bot no admin
-        if (command.isBotAdm && !isBotAdmin) return m.reply("BOT NOT ADMIN!!")
-        await command.run(mywa, m, cmdOpt);
+        if (command.default.isQ && !text) return m.reply(command.default.qt)
+        if (command.default.isOwner && !isOwner) return m.reply("OWNER ONLY")
+        if (command.default.isGc && !isGroup) return m.reply("GROUP ONLY")
+        if (command.default.isBotAdm && !isBotAdmin) return m.reply("BOT NOT ADMIN!!")
+        await command.default.run(mywa, m, cmdOpt);
 
     } catch (e) {
         console.error(e)
     }
-});
+}

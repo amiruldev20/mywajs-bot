@@ -1,5 +1,0 @@
-const solenolyrics = require("solenolyrics");
-  let kimak = await solenolyrics.requestLyricsFor(asw)
-  msg.reply(`${kimak}`);
-  console.log(`Sukses cari lirik`);
-  }

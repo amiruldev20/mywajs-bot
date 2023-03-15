@@ -24,7 +24,9 @@ export default {
             .map(([tag, cmd]) => `[ ${tag} ]\n- ${cmd.join('\n- ')}`)
             .join('\n\n');
 
-        let button = new Buttons(`Hai, *@${con.number}* 👋\nbot ini masih dalam tahap pengembangan!!`, [{
+        let button = new Buttons(`Hai, *@${con.number}* 👋\nbot ini masih dalam tahap pengembangan!!
+
+${result}`, [{
             body: 'OWNER'
         }, {
             body: 'SCRIPT'

@@ -44,12 +44,14 @@ const mywa = new Client({
            },
         args: [
             '--no-sandbox',
+            '--disable-web-security',
             '--no-first-run',
             '--no-default-browser-check',
             '--disable-setuid-sandbox',
             '--disable-accelerated-2d-canvas',
             '--disable-session-crashed-bubble',
-            '--start-maximized'
+            '--start-maximized',
+            '--force-dark-mode'
         ],
         ignoreHTTPSErrors: true,
         executablePath: '/usr/bin/google-chrome'

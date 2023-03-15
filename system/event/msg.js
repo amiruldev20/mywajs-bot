@@ -1,4 +1,5 @@
 export default async function handlerMessage(mywa, m) {
+    if (m.id.fromMe) return
     console.log(m)
     var prefix = process.env.prefix;
     try {

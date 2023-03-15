@@ -51,14 +51,14 @@ const mywa = new Client({
             '--disable-accelerated-2d-canvas',
             '--disable-session-crashed-bubble',
             '--start-maximized',
+	    '--disable-features=LightMode',
             '--force-dark-mode'
         ],
         ignoreHTTPSErrors: true,
-        executablePath: '/usr/bin/google-chrome'
+        executablePath: puppeteer.executablePath()
 	    //'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
     }
 });
-
 // setingan diatas untuk menjalankan puppeteer di panel (goldpanel lebih tepatnya)
 // run dipanel silahkan true headles
 // panelmu ga sup puppeteer? pakailah goldpanel

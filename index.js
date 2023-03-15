@@ -70,8 +70,11 @@ mywa.cmd = new Collection();
 mywa.initialize();
 
 cron.schedule('*/3 * * * *', () => { 
+try {
   console.log('Starting autoclear...');
-  func.clearF("./tmp/")
+  await func.clearF("./tmp/")
+} catch {
+}
 });
 
 mywa.on('loading_screen', (percent, message) => {

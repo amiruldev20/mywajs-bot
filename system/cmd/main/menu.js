@@ -30,6 +30,6 @@ export default {
         }, {
             body: 'SCRIPT'
         }, ], '', '© wwebjs library');
-        m.reply(button, { mentions: [con] })
+        m.reply(button, false, { mentions: [con] })
     }
 }

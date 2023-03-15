@@ -24,12 +24,11 @@ export default {
             .map(([tag, cmd]) => `[ ${tag} ]\n- ${cmd.join('\n- ')}`)
             .join('\n\n');
 
-        let button = new Buttons(`Hai, *@${con.number}* 👋
-        bot ini masih dalam tahap pengembangan!!`, [{
+        let button = new Buttons(`Hai, *@${con.number}* 👋\nbot ini masih dalam tahap pengembangan!!`, [{
             body: 'OWNER'
         }, {
             body: 'SCRIPT'
-        }, ], '', '© wwebjs library');
+        }, ], '', '© wwebjs library', false);
         m.reply(button, false, { mentions: [con] })
     }
 }

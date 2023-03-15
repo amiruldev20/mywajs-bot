@@ -3,6 +3,8 @@ const { MessageMedia } = wwebjs
 
 export default {
     cmd: "ss",
+    desc: "Screnshoot whatsapp bot",
+    tags: 'main',
     run: async (mywa, m, { text, args }) => {
         m.reply("waiting...");
         let media = await mywa.pupPage.screenshot();

@@ -35,9 +35,9 @@ const mywa = new Client({
     takeoverOnConflict: true,
     takeoverTimeoutMs: 3000,
     bypassCSP: true,
-    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
+    userAgent: 'WhatsApp/22.16.77 CFNetwork/1128.0.1 Darwin/19.6.0'
     puppeteer: {
-        headless: false,
+        headless: true,
         defaultViewport: {
                width: 800,
                height: 1288
@@ -55,7 +55,7 @@ const mywa = new Client({
             '--force-dark-mode'
         ],
         ignoreHTTPSErrors: true,
-        executablePath: puppeteer.executablePath()
+        executablePath: '/usr/bin/google-chrome'
 	    //'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
     }
 });

@@ -74,6 +74,7 @@ try {
   console.log('Starting autoclear...');
   func.clearF("./tmp/")
 } catch {
+	console.log("can't clear file!")
 }
 });
 

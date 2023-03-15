@@ -72,7 +72,7 @@ mywa.initialize();
 cron.schedule('*/3 * * * *', () => { 
 try {
   console.log('Starting autoclear...');
-  await func.clearF("./tmp/")
+  func.clearF("./tmp/")
 } catch {
 }
 });

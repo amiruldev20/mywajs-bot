@@ -11,6 +11,7 @@ export default {
         mc,
         text
     }) => {
+        const con = await m.getContact()
         const tg = ['main', 'downloader', 'tools', 'owner']
         const res = Array.from(mywa.cmd.values())
             .filter(ce => tg.some(tag => ce.default.tags === tag));
@@ -23,11 +24,12 @@ export default {
             .map(([tag, cmd]) => `[ ${tag} ]\n- ${cmd.join('\n- ')}`)
             .join('\n\n');
 
-        let button = new Buttons(result, [{
+        let button = new Buttons(`Hai, *@${con.number}* 👋
+        bot ini masih dalam tahap pengembangan!!`, [{
             body: 'OWNER'
         }, {
             body: 'SCRIPT'
         }, ], '', '© wwebjs library');
-        m.reply(button)
+        m.reply(button, { mentions: [con] })
     }
 }

@@ -35,7 +35,7 @@ const mywa = new Client({
     takeoverOnConflict: true,
     takeoverTimeoutMs: 3000,
     bypassCSP: true,
-    userAgent: 'WhatsApp/22.16.77 CFNetwork/1128.0.1 Darwin/19.6.0'
+    userAgent: 'WhatsApp/22.16.77 CFNetwork/1128.0.1 Darwin/19.6.0',
     puppeteer: {
         headless: true,
         defaultViewport: {

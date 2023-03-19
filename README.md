@@ -1,6 +1,7 @@
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
 # WWEBJS BASE (ESM)
-Versi cjs nanti di up di branch cjs
+Versi cjs nanti di up di branch cjs.
+PROJECT INI AKTIF. AKAN TERUS DIKEMBANGKAN
 
  <p align="center">
 <img width="" src="https://img.shields.io/github/repo-size/amiruldev20/wwebjs-base?color=green&label=Repo%20Size&style=for-the-badge&logo=appveyor">

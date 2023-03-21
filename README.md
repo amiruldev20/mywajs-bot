@@ -7,7 +7,8 @@ PROJECT INI AKTIF. AKAN TERUS DIKEMBANGKAN
 <img width="" src="https://img.shields.io/github/repo-size/amiruldev20/wwebjs-base?color=green&label=Repo%20Size&style=for-the-badge&logo=appveyor">
 </p>
  
- > **Note**: ini sudah bisa digunakan tetapi belum 100% fix. silahkan tunggu update jika ingin yang 100% fix dan banyak menu
+ > **Note**: ini sudah bisa digunakan tetapi belum 100% fix. silahkan tunggu update jika ingin yang 100% fix dan banyak menu.
+ aga lama update karena ingin buatkan yang terbaik dan mudah digunakan
  
 GRUP INFO: [KLIK DISINI](https://chat.whatsapp.com/Htfi5uzYWOt0ekPu66YK4Y)
 

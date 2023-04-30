@@ -1,54 +1,38 @@
 {
-	"name": "wwebjs-base",
-	"version": "1.0.2",
-	"description": "New base whatsapp bot using with wwebjs",
-	"type": "module",
-	"main": "index.js",
-	"scripts": {
-		"start": "node start.js",
-		"test": "node tes.js",
-		"go": "pm2 start system/index.js --deep-monitoring --attach --name mywabot",
-		"dev": "nodemon --files --watch \"./**\" --ext \"js,ejs,html\" --exec npm start",
-		"tes": "nodemon --files --watch \"./**\" --ext \"js,ejs,html\" --exec npm run test",
-		"stop": "pm2 stop mywabot"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/amiruldev20/wwebjs-base.git"
-	},
-	"keywords": [
-		"express",
-		"api",
-		"bot",
-		"whatsapp-gateway",
-		"whatsapp bot",
-		"wwebjs",
-		"Amirul-Dev",
-		"mysql",
-		"express",
-		"nodejs"
-	],
-	"author": "Amirul Dev",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/amiruldev20/wwebjs-base/issues"
-	},
-	"homepage": "https://github.com/amiruldev20/wwebjs-base#readme",
-	"dependencies": {
-		"@bochilteam/scraper": "^4.0.22-alpha.0",
-		"@discordjs/collection": "^1.4.0",
-		"axios": "^1.3.4",
-		"chalk": "^4.1.2",
-		"cheerio": "^1.0.0-rc.12",
-		"crypto": "^1.0.1",
-		"dotenv": "^16.0.3",
-		"glob": "^8.1.0",
-		"moment-timezone": "^0.5.41",
-		"node-cron": "^3.0.2",
-		"nodemon": "^2.0.21",
-		"qrcode-terminal": "^0.12.0",
-		"unofficial-carbon-now": "^1.0.6",
-		"util": "^0.12.5",
-		"wwebjs": "github:amiruldev20/wwebjs"
-	}
+  "name": "MyWA-BOT",
+  "version": "1.0.2",
+  "description": "Whatsapp bot all in one, build with mywajs",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "system/cmd": "cmd",
+    "system/lib": "lib"
+  },
+  "scripts": {
+    "start": "node index.js --max-old-space-size=192",
+    "dev": "nodemon --files --watch \"./**\" --ext \"js,ejs,html\" --exec npm start"
+  },
+  "keywords": [
+    "wawebjs",
+    "mywajs",
+    "playwright",
+    "base-wabot",
+    "puppeteer",
+    "amiruldev",
+    "whatsapp-web.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amiruldev20/mywajs-bot"
+  },
+  "bugs": {
+    "url": "https://github.com/amiruldev20/mywajs-bot/issues"
+  },
+  "homepage": "https://github.com/amiruldev20/mywajs-bot",
+  "author": "Amirul Dev",
+  "license": "ISC",
+  "dependencies": {
+    "moment-timezone": "^0.5.43",
+    "mywajs": "github:amiruldev20/mywajs"
+  }
 }

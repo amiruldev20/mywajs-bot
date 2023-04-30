@@ -1,33 +1,31 @@
-import util from "util";
-import pkg from 'wwebjs'
-const {
-    Buttons,
-    MessageMedia
-} = pkg
+import * as playwr from 'playwright';
 
 export default {
-    cmd: ">",
-    desc: "Live test eval javascript",
-    qt: "Silahkan masukan kodenya",
-    tags: "owner",
-    run: async (mywa, m, {
-        mc,
-        text,
-        quoted
-    }) => {
-        let code2 = text.replace("°", ".toString()");
+    name: "eval",
+    cmd: [">", ">>"],
+    tags: 'owner',
+    desc: "Eval",
+    run: async (opt) => {
+        const {
+            m,
+            mywa
+        } = opt
+        let evalCmd
         try {
-            let resultTest = await eval(code2);
-            if (typeof resultTest === "object") {
-                m.reply(util.format(resultTest));
-            } else {
-                m.reply(util.format(resultTest));
-            }
-        } catch (err) {
-            m.reply(util.format(err));
+            evalCmd = /await/i.test(m.text) ? eval("(async() => { " + m.text + " })()") : eval(m.text)
+        } catch (e) {
+            m.reply(npm.util.format(e))
         }
-        return;
+        new Promise(async (resolve, reject) => {
+            try {
+                resolve(evalCmd);
+            } catch (err) {
+                reject(err)
+            }
+        })
+            ?.then((res) => m.reply(npm.util.format(res)))
+            ?.catch((err) => m.reply(npm.util.format(err)))
     },
     isOwner: true,
-    isQ: true,
-};
+    noPrefix: true
+}

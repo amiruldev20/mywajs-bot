@@ -9,17 +9,17 @@ async function start() {
     process.on("unhandledRejection", console.error)
     readCommands()
 
-    const content = await database.read()
-    if (content.data) {
-        global.db = {
-            users: {},
-            groups: {},
-            ...(content.data || {})
-        }
-        await database.write()
-    } else {
-        global.db = content.data
-    }
+const content = await database.read();
+if (content && content.data) {
+  global.db = {
+    users: {},
+    groups: {},
+    ...(content.data || {}),
+  };
+  await database.write();
+} else {
+  global.db = content?.data;
+}
 
     const mywa = new Client({
         authStrategy: new npm.mywajs.LocalAuth(),

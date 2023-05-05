@@ -1,5 +1,4 @@
 import func from "./system/lib/func.js"
-//import scrape from "./system/lib/scraper.js"
 
 import * as mywajs from 'mywajs'
 import qrcode from 'qrcode-terminal'
@@ -51,10 +50,10 @@ global.set = {
         name: 'session'
     },
     opt: {
-        public: true,
+        public: false,
         antiCall: false,
         prefix: "#",
-        URI: "#",
+        URI: "mongodb+srv://wweb:mywa1337@cluster0.aybyqhr.mongodb.net/?retryWrites=true&w=majority",
     },
     func: func,
     //  scrape: scrape,

@@ -1,5 +1,4 @@
-import * as playwr from 'playwright';
-
+import { Buttons } from 'mywajs'
 export default {
     name: "eval",
     cmd: [">", ">>"],
@@ -10,6 +9,7 @@ export default {
             m,
             mywa
         } = opt
+
         let evalCmd
         try {
             evalCmd = /await/i.test(m.text) ? eval("(async() => { " + m.text + " })()") : eval(m.text)

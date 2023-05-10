@@ -1,3 +1,4 @@
 /node_modules
 .mywajs_auth
+mydb.json
 package-lock.json

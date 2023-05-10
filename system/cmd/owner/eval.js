@@ -1,15 +1,10 @@
-import { Buttons } from 'mywajs'
 export default {
-    name: "eval",
-    cmd: [">", ">>"],
+    name: ">",
+    cmd: ["eval",">>"],
     tags: 'owner',
     desc: "Eval",
-    run: async (opt) => {
-        const {
-            m,
-            mywa
-        } = opt
-
+    run: async(opt) => {
+        const { m, mywa } = opt
         let evalCmd
         try {
             evalCmd = /await/i.test(m.text) ? eval("(async() => { " + m.text + " })()") : eval(m.text)
@@ -21,10 +16,10 @@ export default {
                 resolve(evalCmd);
             } catch (err) {
                 reject(err)
-            }
+            }   
         })
-            ?.then((res) => m.reply(npm.util.format(res)))
-            ?.catch((err) => m.reply(npm.util.format(err)))
+        ?.then((res) => m.reply(npm.util.format(res)))
+        ?.catch((err) => m.reply(npm.util.format(err)))
     },
     isOwner: true,
     noPrefix: true

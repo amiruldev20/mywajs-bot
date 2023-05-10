@@ -53,7 +53,7 @@ global.set = {
         public: false,
         antiCall: false,
         prefix: "#",
-        URI: "mongodb+srv://wweb:mywa1337@cluster0.aybyqhr.mongodb.net/?retryWrites=true&w=majority",
+        URI: "mydb.json",
     },
     func: func,
     //  scrape: scrape,

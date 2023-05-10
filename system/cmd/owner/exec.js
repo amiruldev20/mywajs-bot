@@ -1,5 +1,5 @@
 export default {
-    name: "exec",
+    name: "$",
     cmd: ["$"],
     tags: 'owner',
     desc: "Exec",

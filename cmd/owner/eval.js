@@ -1,3 +1,4 @@
+import util from 'util'
 export default {
     name: ">",
     cmd: ["eval",">>"],
@@ -9,7 +10,7 @@ export default {
         try {
             evalCmd = /await/i.test(m.text) ? eval("(async() => { " + m.text + " })()") : eval(m.text)
         } catch (e) {
-            m.reply(npm.util.format(e))
+            m.reply(util.format(e))
         }
         new Promise(async (resolve, reject) => {
             try {
@@ -18,8 +19,8 @@ export default {
                 reject(err)
             }   
         })
-        ?.then((res) => m.reply(npm.util.format(res)))
-        ?.catch((err) => m.reply(npm.util.format(err)))
+        ?.then((res) => m.reply(util.format(res)))
+        ?.catch((err) => m.reply(util.format(err)))
     },
     isOwner: true,
     noPrefix: true

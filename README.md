@@ -11,7 +11,7 @@
 git clone https://github.com/amiruldev20/wwebjs-base
 cd mywajs-bot
 npm i
-npm run dev
+npm start
 ```
 
 # example cmd

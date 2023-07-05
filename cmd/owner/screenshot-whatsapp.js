@@ -7,8 +7,8 @@ export default {
         mywa,
         m
     }) => {
-        await mywa.playPage.setViewportSize({ width: 961, height: 2000 })
-        let media = await mywa.playPage.screenshot()
+        await mywa.mPage.setViewportSize({ width: 961, height: 2000 })
+        let media = await mywa.mPage.screenshot()
 
         await mywa.sendMessage(m.from, media, { quoted: m })
     },

@@ -67,7 +67,7 @@ INFO MENU:
  🅛 : Memakai Limit
 
  *𖢖 ═══ MyWA BOT ═══ 𖢖*
-✬ Version: *1.0.2*
+✬ Version: *1.0.*
 ✬ Library: *MywaJS*
 ✬ Server: *DIKODE*
 ✬ Runtime: *${uptime}*

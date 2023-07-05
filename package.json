@@ -1,38 +1,54 @@
 {
-  "name": "MyWA-BOT",
-  "version": "1.0.2",
-  "description": "Whatsapp bot all in one, build with mywajs",
-  "main": "index.js",
-  "type": "module",
-  "directories": {
-    "system/cmd": "cmd",
-    "system/lib": "lib"
-  },
-  "scripts": {
-    "start": "node index.js --max-old-space-size=192",
-    "dev": "nodemon --files --watch \"./**\" --ext \"js,ejs,html\" --exec npm start"
-  },
-  "keywords": [
-    "wawebjs",
-    "mywajs",
-    "playwright",
-    "base-wabot",
-    "puppeteer",
-    "amiruldev",
-    "whatsapp-web.js"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/amiruldev20/mywajs-bot"
-  },
-  "bugs": {
-    "url": "https://github.com/amiruldev20/mywajs-bot/issues"
-  },
-  "homepage": "https://github.com/amiruldev20/mywajs-bot",
-  "author": "Amirul Dev",
-  "license": "ISC",
-  "dependencies": {
-    "moment-timezone": "^0.5.43",
-    "mywajs": "github:amiruldev20/mywajs"
-  }
+	"name": "mywajs-bot",
+	"version": "1.0.3",
+	"description": "WhatsApp Bot Using Lib Mywajs",
+	"main": "index.js",
+	"type": "module",
+	"directories": {
+		"system": "system",
+		"system/lib": "lib",
+		"cmd/main": "main",
+		"cmd/owner": "owner",
+		"cmd/store": "store",
+		"cmd/response": "response"
+	},
+	"scripts": {
+		"start": "node index.js",
+		"dev": "nodemon --files --watch \"./**\" --ext \"js,ejs,html\" --exec npm start"
+	},
+	"keywords": [
+		"wawebjs",
+		"mywajs",
+		"puppeteer",
+		"baileys",
+		"openwa",
+		"base-wabot",
+		"playwright",
+		"hisoka",
+		"whatsapp-web.js"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/amiruldev20/mywajs-bot"
+	},
+	"bugs": {
+		"url": "https://github.com/amiruldev20/mywajs-bot/issues"
+	},
+	"homepage": "https://github.com/amiruldev20/mywajs-bot",
+	"author": {
+		"name": "Amirul Dev",
+		"email": "amiruldev20@gmail.com",
+		"url": "https://github.com/amiruldev20"
+	},
+	"license": "GPL-3.0-or-later",
+	"dependencies": {
+		"cheerio": "^1.0.0-rc.12",
+		"chokidar": "^3.5.3",
+		"json-stable-stringify": "latest",
+		"moment-timezone": "^0.5.43",
+		"mongoose": "^7.3.1",
+		"mywajs": "github:amiruldev20/mywajs",
+		"nodemon": "^2.0.22",
+		"syntax-error": "^1.4.0"
+	}
 }

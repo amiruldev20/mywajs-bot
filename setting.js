@@ -1,85 +1,47 @@
-import func from "./system/lib/func.js"
+/*
+/*************************
+* Pake tinggal make
+* jangan hapus sumbernya
+**************************
+* Github: amiruldev20
+* Wa: 085157489446
+*/
 
-import * as mywajs from 'mywajs'
-import qrcode from 'qrcode-terminal'
-import chalk from 'chalk'
-import moment from 'moment-timezone'
-import fs from "node:fs"
-import {
-    spawn
-} from 'node:child_process'
-import {
-    exec
-} from 'node:child_process'
-import path from 'node:path'
-import {
-    fileURLToPath
-} from 'node:url'
-import os from 'node:os'
-import util from 'util'
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import syntaxerror from "syntax-error";
+import Function from "./system/lib/function.js";
 
-// -- setting global
-global.npm = {
-    mywajs: mywajs,
-    qrcode: qrcode,
-    chalk: chalk,
-    moment: moment,
-    fs: fs,
-    spawn: spawn,
-    exec: exec,
-    path: path,
-    fileURLToPath: fileURLToPath,
-    os: os,
-    util: util
-}
-
-global.reloadFile = (file) => reloadFile(file)
-
-// MY SET GLOBAL
+//-- global setting
 global.set = {
-    getses: async (folder) => {
-        var get = await getSes(folder)
-        return bytes(get)
-    },
-    mywa: {},
-    owner: ["62851574894460"],
-    ses: {
-        path: '.mywajs_auth',
-        name: 'session'
-    },
-    opt: {
-        public: false,
-        antiCall: false,
-        prefix: "#",
-        URI: "mydb.json",
-    },
-    func: func,
-    //  scrape: scrape,
-    // limit
-    limit: {
-        free: 25,
-        premium: 250,
-        VIP: "Infinity",
-        download: {
-            free: 42300000, // use byte
-            premium: 423000000, // use byte
-            VIP: 1130000000, // use byte 
-        }
-    },
+  owner: ["6285157489446", "62851550602790"],
+  func: Function,
+  opt: {
+    pathCommand: "cmd",
+  },
+  reloadFile: (path) => reloadFile(path),
+};
 
+//-- import module
+import { fileURLToPath } from "url";
+import fs from "fs";
+import * as mywajs from "mywajs";
+import qrcode from "qrcode-terminal";
+import { chromium } from "playwright-chromium";
+import path from "path";
+import chalk from "chalk";
+import os from "os";
+import { exec } from "child_process";
+//-- export
+export { fileURLToPath, fs, mywajs, qrcode, chromium, path, chalk, os, exec };
+
+//-- sistem reload
+async function reloadFile(file) {
+  let fileP = fileURLToPath(file);
+  fs.watchFile(fileP, () => {
+    fs.unwatchFile(fileP);
+    console.log(chalk.green(`[ UPDATE ] file => "${fileP}"`));
+    import(`${file}?update=${Date.now()}`);
+  });
 }
 
-
-function reloadFile(file) {
-    file = (file).url || (file)
-    let fileP = fileURLToPath(file)
-    fs.watchFile(fileP, () => {
-        fs.unwatchFile(fileP)
-        console.log(`Update File "${fileP}"`)
-        import(`${file}?update=${Date.now()}`)
-    })
-}
-
-reloadFile(import.meta.url)
+//-- reload file
+reloadFile(import.meta.url);

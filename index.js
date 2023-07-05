@@ -1,30 +1,50 @@
-import './setting.js'
-import {
-    promises as fs
-} from 'node:fs';
-const __dirname = npm.path.dirname(npm.fileURLToPath(import.meta.url))
+/*
+/*************************
+* Pake tinggal make
+* jangan hapus sumbernya
+**************************
+* Github: amiruldev20
+* Wa: 085157489446
+*/
+import { spawn } from "child_process";
+import path from "path";
+import { fileURLToPath } from "url";
+import { platform } from "os";
+import { watchFile, unwatchFile } from "fs";
 
-console.log('Starting MyWA BOT...')
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-
-function start() {
-    let args = [npm.path.join(__dirname, "system", "mywa.js"), ...process.argv.slice(2)]
-    let p = npm.spawn(process.argv[0], args, {
-        stdio: ['inherit', 'inherit', 'inherit', 'ipc']
+var isRunning = false;
+function start(file) {
+  if (isRunning) return;
+  isRunning = true;
+  console.log("Starting . . .");
+  let args = [path.join(__dirname, "system", file), ...process.argv.slice(2)];
+  let p = spawn(process.argv[0], args, {
+    stdio: ["inherit", "inherit", "inherit", "ipc"],
+  })
+    .on("message", (data) => {
+      console.log("[RECEIVED]", data);
+      switch (data) {
+        case "reset":
+          platform() === "win32" ? p.kill("SIGINT") : p.kill();
+          isRunning = false;
+          start.apply(this, arguments);
+          break;
+        case "uptime":
+          p.send(process.uptime());
+          break;
+      }
     })
-        .on('message', data => {
-            if (data == 'reset') {
-                console.log('Restarting...')
-                p.kill()
-                start()
-            }
-        })
-        .on("exit", () => {
-            start()
-        })
+    .on("exit", (code) => {
+      isRunning = false;
+      console.error("Exited with code:", code);
+      if (code === 0) return;
+      watchFile(args[0], () => {
+        unwatchFile(args[0]);
+        start(file);
+      });
+    });
 }
 
-setInterval(async () => {
-    npm.exec('rm -rf temp/*')
-}, 60000);
-start()
+start("mywa.js");

@@ -1,85 +1,71 @@
-const loadDatabase = (m) => {
-const isNumber = x => typeof x === "number" && !isNaN(x)
-const isBoolean = x => typeof x === "boolean" && Boolean(x)
-let user = global.db.users[m.sender]
-if (typeof user !== "object") global.db.users[m.sender] = {}
-if (user) {
-if (!isNumber(user.limit)) user.limit = global.set.limit.free
-if (!isBoolean(user.premium)) user.premium = m.isOwner ? true : false
-if (!isBoolean(user.VIP)) user.VIP = m.isOwner ? true : false
-if (!isBoolean(user.registered)) user.registered = false
-if (!("lastChat" in user)) user.lastChat = new Date * 1
-if (!("name" in user)) user.name = m.pushName
-if (!isNumber(user.exp)) user.exp = 0
-if (!("masaPremium" in user)) user.masaPremium = 0
-if (!("masaVIP" in user)) user.masaVIP = 0
-if (!isBoolean(user.autoDownload)) user.autoDownload = true
-if (!isBoolean(user.autoSticker)) user.autoSticker = true
-if (!isBoolean(user.banned)) user.banned = false
-if (!isBoolean(user.blacklist)) user.blacklist = false
-} else {
-global.db.users[m.sender] = {
-limit: global.set.limit.free,
-lastChat: new Date * 1,
-premium: m.isOwner ? true : false,
-VIP: m.isOwner ? true : false,
-registered: false,
-name: m.pushName,
-exp: 0,
-masaPremium: 0,
-masaVIP: 0,
-autoDownload: true,
-autoSticker: true,
-banned: false,
-blacklist: false,
-}
-}
+/*
+/*************************
+* Pake tinggal make
+* jangan hapus sumbernya
+**************************
+* Github: amiruldev20
+* Wa: 085157489446
+*/
+import "../../setting.js";
 
-if (m.isGroup) {
-let group = global.db.groups[m.from]
-if (typeof group !== "object") global.db.groups[m.from] = {}
-if (group) {
-if (!isBoolean(group.mute)) group.mute = false
-if (!isNumber(group.lastChat)) group.lastChat = new Date * 1
-if (!("welcome" in group)) group.welcome = null
-if (!("leave" in group)) group.leave = null
-if (!("promote" in group)) group.promote = null
-if (!("demote" in group)) group.demote = null
-if (!("announcement" in group)) group.announcement = null
-if (!("not_announcement" in group)) group.not_announcement = null
-if (!("subject" in group)) group.subject = m.metadata.subject
-if (!("description" in group)) group.description = null
-if (!("ephemeral" in group)) group.ephemeral = null
-if (!("not_ephemeral" in group)) group.not_ephemeral = null
-if (!isBoolean(group.antiLink)) group.antiLink = false
-if (!isBoolean(group.antiTag)) group.antiTag = false
-if (!isBoolean(group.antiDelete)) group.antiDelete = false
-if (!isBoolean(group.antiBot))
-group.antiBot = false
-} else {
-global.db.groups[m.from] = {
-lastChat: new Date * 1,
-mute: false,
-welcome: null,
-leave: null,
-promote: null,
-demote: null,
-announcement: null,
-not_announcement: null,
-subject: m.metadata.subject,
-description: null,
-ephemeral: null,
-not_ephemeral: null,
-antiLink: false,
-antiTag: false,
-antiDelete: false,
-antibot: false
-}
-}
-}
-}
+const idb = (m) => {
+  if (m.isBot) return;
+  const isNumber = (x) => typeof x === "number" && !isNaN(x);
+  let user = global.db.users.find((v) => v.jid == m.sender);
 
-export { loadDatabase }
+  if (user) {
+    if (!("name" in user)) user.name = m.pushName;
+    if (!("lastChat" in user)) user.lastChat = new Date() * 1;
+    if (!user.register) user.register = false;
+    if (!isNumber(user.exp)) user.exp = 0;
+    if (!isNumber(user.limit)) user.limit = 10;
+    if (!user.VIP) user.VIP = m.isOwner ? true : false;
+    if (!user.banned) user.banned = false;
+  } else {
+    global.db.users.push({
+      jid: m.sender,
+      name: m.pushName,
+      lastChat: new Date() * 1,
+      register: false,
+      exp: 0,
+      limit: 10,
+      VIP: m.isOwner ? true : false,
+      banned: false,
+    });
+  }
 
+  if (m.isGroup) {
+    let group = global.db.groups.find((v) => v.jid == m.from);
+    if (group) {
+      if (!("name" in group)) group.name = m.metadata.subject;
+      if (!group.mute) group.mute = false;
+    } else {
+      global.db.groups.push({
+        jid: m.from,
+        name: m.metadata.subject,
+        mute: false,
+      });
+    }
+  }
 
-reloadFile(import.meta.url)
+  // ATUR NOMOR OWNER SEMUA DIBAWAH INI
+  let setting = global.db.setting;
+  if (setting) {
+    if (!("name" in setting)) setting.name = "MywaBOT";
+    if (!("version" in setting)) setting.version = "1.0.3";
+    if (!("public" in setting)) setting.public = true;
+    if (!Array.isArray("owner" in setting))
+      setting.owner = ["6285157489446", "6285155060790"];
+    if (!("lang" in setting)) setting.lang = "id";
+  } else {
+    global.db.setting = {
+      name: "MywaBOT",
+      version: "1.0.3",
+      public: true,
+      owner: ["628515748946", "62851550602790"],
+      lang: "id",
+    };
+  }
+};
+export { idb };
+set.reloadFile(import.meta.url);

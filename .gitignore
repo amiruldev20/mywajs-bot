@@ -1,4 +1,5 @@
 /node_modules
 .mywajs_auth
-mydb.json
+mywadb.json
+temp/*
 package-lock.json

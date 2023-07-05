@@ -67,7 +67,7 @@ export const Message = async (mywa, m) => {
       // for command no prefix
       if (!prefix && command.default.noPrefix) {
         if (command.default.locked && !m.isOwner) {
-          return global.set.mess("locked", m);
+          return m.reply(`Fitur ini dikunci!!`);
         }
 
         if (command.default.isMedia && !quoted.mime) {
@@ -98,44 +98,46 @@ export const Message = async (mywa, m) => {
             if (command.default.isMedia.ViewOnce && !quoted.isViewOnce)
               return m.reply("Reply View Once...");
           } else {
-            return global.set.mess("media", m);
+            return m.reply("Reply media");
           }
         }
 
         if (command.default.isQuoted && !m.hasQuotedMsg) {
-          return global.set.mess("quoted", m);
+          return m.reply(`Silahkan reply / quoted pesan!!`);
         }
 
         if (command.default.isOwner && !m.isOwner) {
-          return global.set.mess("owner", m);
+          return m.reply("Fitur ini hanya untuk owner!!");
         }
 
         if (command.default.isGroup && !m.isGroup) {
-          return global.set.mess("group", m);
+          return m.reply("Fitur ini hanya untuk grup!!");
         }
 
         if (command.default.isPrivate && m.isGroup) {
-          return global.set.mess("private", m);
+          return m.reply("Fitur ini hanya dapat digunakan di private chat!!");
         }
 
         if (command.default.isBotAdmin && !m.isBotAdmin) {
-          return global.set.mess("botAdmin", m);
+          return m.reply(
+            `Agar fitur ini dapat bekerja. bot harus menjadi admin!!`
+          );
         }
 
         if (command.default.isAdmin && !m.isAdmin) {
-          return global.set.mess("admin", m);
+          return m.reply("Fitur ini hanya bisa digunakan oleh admin grup!!");
         }
 
         if (command.default.isBot && m.fromMe) {
-          return global.set.mess("bot", m);
+          return m.reply("Fitur ini hanya untuk bot");
         }
 
         if (command.default.isPremium && !m.isPremium) {
-          return global.set.mess("premium", m);
+          return m.reply("Premium only!!");
         }
 
         if (command.default.isVIP && !m.isVIP) {
-          return global.set.mess("vip", m);
+          return m.reply("VIP only");
         }
 
         if (command.default.example && !m.text) {
@@ -176,7 +178,7 @@ export const Message = async (mywa, m) => {
       // for command with prefix
       if (!!prefix && m.body.startsWith(prefix)) {
         if (command.default.locked && !m.isOwner) {
-          return global.set.mess("locked", m);
+          return m.reply("Fitur ini dikunci oleh owner");
         }
 
         if (command.default.isMedia && !quoted.mime) {
@@ -207,44 +209,44 @@ export const Message = async (mywa, m) => {
             if (command.default.isMedia.ViewOnce && !quoted.isViewOnce)
               return m.reply("Reply View Once...");
           } else {
-            return global.set.mess("media", m);
+            return m.reply("Silahkan reply media!!");
           }
         }
 
         if (command.default.isQuoted && !m.hasQuotedMsg) {
-          return global.set.mess("quoted", m);
+          return m.reply("Silahkan quoted / reply pesan");
         }
 
         if (command.default.isOwner && !m.isOwner) {
-          return global.set.mess("owner", m);
+          return m.reply("Owner Only");
         }
 
         if (command.default.isGroup && !m.isGroup) {
-          return global.set.mess("group", m);
+          return m.reply("Group only");
         }
 
         if (command.default.isPrivate && m.isGroup) {
-          return global.set.mess("private", m);
+          return m.reply("Private chat only");
         }
 
         if (command.default.isBotAdmin && !m.isBotAdmin) {
-          return global.set.mess("botAdmin", m);
+          return m.reply("Bot harus menjadi admin");
         }
 
         if (command.default.isAdmin && !m.isAdmin) {
-          return global.set.mess("admin", m);
+          return m.reply("Admin only");
         }
 
         if (command.default.isBot && m.fromMe) {
-          return global.set.mess("bot", m);
+          return m.reply("Ini hanya untuk bot");
         }
 
         if (command.default.isPremium && !m.isPremium) {
-          return global.set.mess("premium", m);
+          return m.reply("Premium only");
         }
 
         if (command.default.isVIP && !m.isVIP) {
-          return global.set.mess("vip", m);
+          return m.reply("VIP only");
         }
 
         if (command.default.example && !m.text) {

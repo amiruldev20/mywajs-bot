@@ -19,6 +19,8 @@ import { Message, readCommands } from "./event/messages.js";
 import { Localdb } from "./lib/localdb.js";
 import { idb } from "./lib/database.js";
 import Collection from "./lib/collection.js";
+const port = process.env.PORT || 3000;
+const { cconnect } = await import("../server.js");
 
 //-- global system
 global.commands = new Collection();
@@ -62,7 +64,7 @@ async function start() {
     takeoverTimeoutMs: "Infinity",
     clearSessions: true,
   });
-
+  await cconnect(mywa, port);
   mywa.initialize();
 
   global.db = {

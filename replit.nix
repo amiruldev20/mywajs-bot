@@ -9,8 +9,8 @@
     pkgs.imagemagick
     pkgs.wget
     pkgs.replitPackages.jest
-    pkgs.speedtest
+    pkgs.speedtest-cli
     pkgs.chromium
-    pkgs chromedriver
+    pkgs.chromedriver
 	];
 }

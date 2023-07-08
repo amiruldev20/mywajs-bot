@@ -19,7 +19,7 @@ import { Message, readCommands } from "./event/messages.js";
 import { Localdb } from "./lib/localdb.js";
 import { idb } from "./lib/database.js";
 import Collection from "./lib/collection.js";
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 1337;
 const { cconnect } = await import("../server.js");
 
 //-- global system
@@ -72,6 +72,7 @@ async function start() {
     groups: [],
     store: [],
     setting: {},
+    command: {},
     ...((await props.fetch()) || {}),
   };
   await props.save(global.db);
@@ -97,7 +98,12 @@ async function start() {
     const m = await await serialize(mywa, message);
     await await Message(mywa, m);
     await idb(m);
-  });
+    //console.log("msg ", m)
+  })
+  
+  mywa.on('poll_vote', (vote) => {
+    console.log("myv ", vote)
+});
 
   // rewrite database every 3 seconds
   setInterval(async () => {

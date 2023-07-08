@@ -102,3 +102,33 @@ async savfb(link, msg) {
   }
   
 */
+
+
+import fetch from 'node-fetch';
+import FormData from 'form-data';
+const fileType = (await import('file-type')).default
+
+export default new class scrape {
+  constructor() {
+  for (const a in depen?.dependencies) {
+  this[a] = import(a)
+  }
+}
+
+async fileIO(buffer){
+  const fileInfo = await fileType.fromBuffer(buffer);
+  const { ext } = fileInfo || {};
+  const form = new FormData();
+  form.append('file', buffer, { filename: `tmp.${ext}` });
+  const res = await fetch('https://file.io/?expires=1d', {
+    method: 'POST',
+    body: form,
+  });
+  const json = await res.json();
+  if (!json.success) {
+    throw json;
+  }
+  return json.link;
+};
+
+}

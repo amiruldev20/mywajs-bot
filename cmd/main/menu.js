@@ -34,7 +34,7 @@ export default {
     let uptime = clockString(_uptime);
     let totalusr = Object.keys(db.users).length;
     let totalreg = Object.values(db.users).filter(
-      (user) => user.register == true
+      (user) => user.registered == true
     ).length;
 
     if (m.args.length >= 1) {
@@ -86,7 +86,6 @@ INFO MENU:
 ✬ Server: *DIKODE*
 ✬ Runtime: *${uptime}*
 ✬ Database: ${totalreg} of ${totalusr}
-✬ Total Module: *2*
 
 `;
 
@@ -134,7 +133,7 @@ contoh:
               title: `MyWA BOT BETA`,
               thumbnailUrl: "https://i.ibb.co/Sn9yWxj/1663290082297.jpg",
               description: set.func.tanggal(new Date()),
-              sourceUrl: "https://wa.me/stickerpack/amirul.dev",
+              sourceUrl: "https://call.whatsapp.com/voice/amirul.dev",
               linkPreview: true,
             },
           },

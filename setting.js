@@ -12,6 +12,7 @@ import Function from "./system/lib/function.js";
 
 //-- global setting
 global.set = {
+prefix: /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#%^&.©^]|[\u{1F000}-\u{1F6FF}\u{1F900}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{1F680}-\u{1F6FF}\u{1F170}-\u{1F251}]/gu,
   owner: ["6285157489446", "62851550602790"],
   func: Function,
   opt: {

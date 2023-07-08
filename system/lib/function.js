@@ -9,8 +9,10 @@
 import axios from "axios"
 import fs from "fs"
 import {
-fileTypeFromBuffer
+fileTypeFromBuffer,
+fileTypeStream
 } from "file-type"
+import Stream, { Readable } from 'stream'
 import path from "path"
 import stream from "stream"
 import {
@@ -228,22 +230,23 @@ return `${result}${ext ? `.${ext}` : ""}`
 }
 
 async reloadDir(Path, commands = global.commands) {
-    if (new RegExp(set.opt.pathCommand, "i").test(Path)) {
-       // console.log(`Load Command "${Path}"`)
-        const command = await import(`${Path}?update=${Date.now()}`)
-        commands.set(command?.default?.name, command)
+if (new RegExp(set.opt.pathCommand, "i").test(Path)) {
+ // console.log(`Load Command "${Path}"`)
+const command = await import(`${Path}?update=${Date.now()}`)
+commands.set(command?.default?.name, command)
 
-    } else {
-      //  console.log(`Load File "${Path}"`)
-        await import(`${Path}?update=${Date.now()}`)
-    }
+} else {
+//console.log(`Load File "${Path}"`)
+await import(`${Path}?update=${Date.now()}`)
 }
-
+}
+/*
 isReadableStream(obj) {
 return obj instanceof stream.Stream &&
 typeof(obj._read == "function") &&
 typeof(obj._readableState === "object")
 }
+*/
 
 isBase64(string) {
 const regex = /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/
@@ -389,4 +392,20 @@ result: bestMatch.target,
 rating: bestMatch.rating
 };
 }
+
+
+
+async getfurl(url) {
+try {
+const response = await axios.head(url);
+const contentType = response.headers['content-type'];
+const ext = contentType.split('/').pop();
+return ext || '';
+} catch (error) {
+console.error('Error:', error.message);
+return '';
+}
+}
+
+// end
 }

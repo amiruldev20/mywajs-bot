@@ -10,5 +10,7 @@
     pkgs.wget
     pkgs.replitPackages.jest
     pkgs.speedtest
+    pkgs.chromium
+    pkgs chromedriver
 	];
 }

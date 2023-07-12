@@ -14,6 +14,14 @@ npm i
 npm start
 ```
 
+# informasi
+```
+versi gratis beberapa fitur memakai api dari
+1. xzn.wtf
+2. lolhuman
+jika ingin versi scrape anda dapat membeli script premium
+```
+
 # example cmd
 ```
 opsi yang ada ✅ berarti wajib di tambahkan. yang tidak ada centang berarti tidak masalah jika tidak ada

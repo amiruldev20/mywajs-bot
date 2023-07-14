@@ -17,8 +17,9 @@ npm start
 # informasi
 ```
 versi gratis beberapa fitur memakai api dari
-1. xzn.wtf
-2. lolhuman
+1. xfarr.com
+2. xzn.wtf
+3. lolhuman
 jika ingin versi scrape anda dapat membeli script premium
 ```
 
